@@ -11,9 +11,7 @@ First, set up an S3 bucket with the following folder structure to manage the dat
     * **`processed/`**: For cleaned and filtered data output by the Lambda function.
     * **`enriched/`**: For storing athena query results.
 
-    ![S3 Bucket Structure](https://github.com/chirradhanush/Assignment-3/blob/main/S3%20Bucket%20Structure.png?raw=true)
-
-    ![Processed Folder Screenshot](https://github.com/chirradhanush/Assignment-3/blob/main/Processed%20Folder.png?raw=true)
+    ![S3 Bucket Structure Screenshot](https://github.com/yogasrilella/Assignment-3/blob/main/S3.png?raw=true)
 
 ---
 
@@ -21,7 +19,8 @@ First, set up an S3 bucket with the following folder structure to manage the dat
 
 Create the following IAM roles to grant AWS services the necessary permissions to interact with each other securely.
 
-![IAM Roles Screenshot](https://github.com/chirradhanush/Assignment-3/blob/main/IAM%20Roles.png?raw=true)
+![IAM Roles Overview](https://github.com/yogasrilella/Assignment-3/blob/main/IAM.png?raw=true)
+
 
 
 ### Lambda Execution Role
@@ -34,7 +33,8 @@ Create the following IAM roles to grant AWS services the necessary permissions t
     * `AmazonS3FullAccess`
 5.  Give the role a descriptive name (e.g., `Lambda-S3-Processing-Role`) and create it.
 
-![Processed Data Screenshot](https://github.com/chirradhanush/Assignment-3/blob/main/Screenshot%20(183).png?raw=true)
+![IAM Lambda Role](https://github.com/yogasrilella/Assignment-3/blob/main/IAM%20Lambda.png?raw=true)
+
 
 
 
@@ -47,7 +47,8 @@ Create the following IAM roles to grant AWS services the necessary permissions t
     * `AWSGlueServiceRole`
 3.  Name the role (e.g., `Glue-S3-Crawler-Role`) and create it.
 
-![Glue Crawler Screenshot](https://github.com/chirradhanush/Assignment-3/blob/main/Screenshot%20(184).png?raw=true)
+![IAM Glue Role](https://github.com/yogasrilella/Assignment-3/blob/main/IAM%20Glue.png?raw=true)
+
 
 
 ### EC2 Instance Profile
@@ -58,7 +59,8 @@ Create the following IAM roles to grant AWS services the necessary permissions t
     * `AmazonAthenaFullAccess`
 3.  Name the role (e.g., `EC2-Athena-Dashboard-Role`) and create it.
 
-![Athena Query Screenshot](https://github.com/chirradhanush/Assignment-3/blob/main/Screenshot%20(185).png?raw=true)
+![IAM EC2 Role](https://github.com/yogasrilella/Assignment-3/blob/main/IAM%20EC2.png?raw=true)
+
 
 ---
 
