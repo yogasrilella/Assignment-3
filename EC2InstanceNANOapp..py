@@ -1,11 +1,13 @@
+
+
 import boto3
 import time
 from flask import Flask
 
 # --- CONFIGURATION - REPLACE THESE VALUES ---
-AWS_REGION = "us-east-1"  # e.g., "us-west-2"
+AWS_REGION = "us-east-2"  # e.g., "us-west-2"
 ATHENA_DATABASE = "orders_db"  # The name of your Athena database
-S3_OUTPUT_LOCATION = "s3://orders-pipeline-bucket-2025/enriched/" # Your Athena results bucket
+S3_OUTPUT_LOCATION = "s3://amazoncore75/enriched/" # Your Athena results bucket
 # -------------------------------------------
 
 # Initialize Flask app and Boto3 client
@@ -19,7 +21,7 @@ queries_to_run = [
         "title": "1. Total Sales by Customer",
         "query": """
             SELECT Customer, SUM(Amount) AS TotalAmountSpent
-            FROM "processed"
+            FROM "filtered_orders"
             GROUP BY Customer
             ORDER BY TotalAmountSpent DESC;
         """
@@ -30,7 +32,7 @@ queries_to_run = [
             SELECT DATE_TRUNC('month', CAST(OrderDate AS DATE)) AS OrderMonth,
             COUNT(OrderID) AS NumberOfOrders,
             ROUND(SUM(Amount), 2) AS MonthlyRevenue
-            FROM "processed"
+            FROM "filtered_orders"
             GROUP BY 1 ORDER BY OrderMonth;
         """
     },
@@ -38,7 +40,7 @@ queries_to_run = [
         "title": "3. Order Status Dashboard",
         "query": """
             SELECT Status, COUNT(OrderID) AS OrderCount, ROUND(SUM(Amount), 2) AS TotalAmount
-            FROM "processed"
+            FROM "filtered_orders"
             GROUP BY Status;
         """
     },
@@ -46,7 +48,7 @@ queries_to_run = [
         "title": "4. Average Order Value (AOV) per Customer",
         "query": """
             SELECT Customer, ROUND(AVG(Amount), 2) AS AverageOrderValue
-            FROM "processed"
+            FROM "filtered_orders"
             GROUP BY Customer
             ORDER BY AverageOrderValue DESC;
         """
@@ -55,7 +57,7 @@ queries_to_run = [
         "title": "5. Top 10 Largest Orders in February 2025",
         "query": """
             SELECT OrderDate, OrderID, Customer, Amount
-            FROM "processed"
+            FROM "filtered_orders"
             WHERE CAST(OrderDate AS DATE) BETWEEN DATE '2025-02-01' AND DATE '2025-02-28'
             ORDER BY Amount DESC LIMIT 10;
         """
@@ -140,4 +142,3 @@ def index():
 if __name__ == '__main__':
     # Run the app on all available network interfaces
     app.run(host='0.0.0.0', port=5000)
-
