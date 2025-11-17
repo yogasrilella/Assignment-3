@@ -77,7 +77,8 @@ This function will automatically process files uploaded to the `raw/` S3 folder.
 7.  Click **Create function**.
 8.  In the **Code source** editor, replace the default code with LambdaFunction.py code for processing the raw data.
 
-![Lambda Function Screenshot](https://github.com/chirradhanush/Assignment-3/blob/main/Lambda%20Function.png?raw=true)
+![Lambda Function](https://github.com/yogasrilella/Assignment-3/blob/main/Lambda.png?raw=true)
+
 
 
 ---
@@ -94,7 +95,8 @@ Set up the S3 trigger to invoke your Lambda function automatically.
 6.  **Suffix (Recommended)**: Enter `.csv`.
 7.  Check the acknowledgment box and click **Add**.
 
-![S3 Trigger Screenshot](https://github.com/chirradhanush/Assignment-3/blob/main/Trigger.png?raw=true)
+![S3 Trigger](https://github.com/yogasrilella/Assignment-3/blob/main/Trigger.png?raw=true)
+
 
 
 --- 
@@ -113,10 +115,11 @@ The crawler will scan your processed data and create a data catalog, making it q
 6.  **Output**: Click **Add database** and create a new database named `orders_db`.
 7.  Finish the setup and run the crawler. It will create a new table in your `orders_db` database.
 
-![CloudWatch Screenshot](https://github.com/chirradhanush/Assignment-3/blob/main/Cloud%20Watch.png?raw=true)
+![CloudWatch Logs](https://github.com/yogasrilella/Assignment-3/blob/main/Cloud%20Watch.png?raw=true)
 
 
-![Lambda Trigger Screenshot](https://github.com/chirradhanush/Assignment-3/blob/main/Screenshot%20(182).png?raw=true)
+![Glue Crawler](https://github.com/yogasrilella/Assignment-3/blob/main/Crawler.png?raw=true)
+
 
 
 ---
@@ -133,7 +136,8 @@ Navigate to the **Athena** service. Ensure your data source is set to `AwsDataCa
 * **Top 10 Largest Orders in February 2025**: Retrieve the highest-value orders from a specific month.
 
 
-![S3 Enriched Folder Screenshot](https://github.com/chirradhanush/Assignment-3/blob/main/S3BucketEnrichedFolder.png?raw=true)
+![S3 Enriched Folder](https://github.com/yogasrilella/Assignment-3/blob/main/S3BucketEnrichedFolder.png?raw=true)
+
 
 ---
 
@@ -226,7 +230,8 @@ Once connected via SSH, run the following commands to install the necessary soft
 * **Stopping the Server**: To stop the Flask application, return to your SSH terminal and press `Ctrl + C`.
 * **Cost Management**: This setup uses free-tier services. To prevent unexpected charges, **stop or terminate your EC2 instance** from the AWS console when you are finished.
 
-![Final Webpage Screenshot](https://github.com/chirradhanush/Assignment-3/blob/main/FinalWebpagePhoto1.png?raw=true)
+![Final Webpage View 1](https://github.com/yogasrilella/Assignment-3/blob/main/FinalWebpagePhoto1.png?raw=true)
 
-![Final Webpage Screenshot 2](https://github.com/chirradhanush/Assignment-3/blob/main/FinalWebpagePhoto2.png?raw=true)
+![Final Webpage View 2](https://github.com/yogasrilella/Assignment-3/blob/main/FinalWebpagePhoto2.png?raw=true)
+
 
